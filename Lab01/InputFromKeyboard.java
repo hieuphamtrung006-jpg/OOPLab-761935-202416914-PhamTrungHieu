@@ -1,3 +1,4 @@
+// bài 6.2
 import java.util.Scanner;
 
 public class InputFromKeyboard {
@@ -11,7 +12,7 @@ public class InputFromKeyboard {
         System.out.println("How tall are you (m)?");
         double dHeight = keyboard.nextDouble();
 
-        System.out.println("Mrs/Ms. " + strName + ", " + iAge + " years old. " +
-                "Your height is " + dHeight + ".");
+        System.out.println("Mrs/Ms. " + strName + ", " + iAge + " years old. " + 
+                           "Your height is " + dHeight + ".");
     }
 }

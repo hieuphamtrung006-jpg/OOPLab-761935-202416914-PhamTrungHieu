@@ -1,6 +1,7 @@
+// bài 6.3
 import java.util.Scanner;
 
-public class Bai6_3 {
+public class CreateTriangle {
     public static void main(String[] args) {
         Scanner keyboard = new Scanner(System.in);
         System.out.print("Enter the height of the triangle (n): ");

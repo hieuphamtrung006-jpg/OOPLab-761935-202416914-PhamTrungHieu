@@ -1,6 +1,7 @@
+// bài 6.6
 import java.util.Scanner;
 
-public class Bai6_6 {
+public class MatrixAddition {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 

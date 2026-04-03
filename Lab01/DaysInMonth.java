@@ -1,6 +1,7 @@
+// bài 6.4
 import java.util.Scanner;
 
-public class Bai6_4 {
+public class DaysInMonth {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int year, month = -1;
