@@ -1,0 +1,67 @@
+1) What class should implement the Comparable interface? 
+
+Đáp án:
+Lớp Media (lớp cha cao nhất) nên implement Comparable.
+
+Cú pháp:
+public abstract class Media implements Comparable<Media>
+
+2) In those classes, how should you implement the compareTo() method to reflect the ordering that we want?
+
+Đáp án:
+Ta sẽ ghi đè hàm compareTo() bên trong lớp Media.
+
+Logic thực hiện:
+
+So sánh title trước.
+Nếu title giống nhau thì so sánh cost.
+
+Cài đặt:
+@Override
+public int compareTo(Media other) {
+  int result = this.title.compareTo(other.getTitle());
+  if (result != 0) {
+    return result;
+  }
+  return Float.compare(this.cost, other.getCost());
+}
+
+3) Can we have two ordering rules if we use this Comparable interface approach?
+
+Đáp án:
+KHÔNG THỂ.
+
+Giải thích:
+Comparable chỉ cho phép định nghĩa MỘT thứ tự sắp xếp mặc định duy nhất (Natural Ordering).
+Nếu cần nhiều cách sắp xếp khác nhau thì phải dùng Comparator.
+
+4) Suppose the DVDs have a different ordering rule (by title, then decreasing length, then cost). How would you modify your code to allow this? 
+
+Đáp án:
+Ta tạo một class Comparator riêng cho DigitalVideoDisc.
+
+Cài đặt:
+
+import java.util.Comparator;
+
+public class DVDComparator implements Comparator<DigitalVideoDisc> {
+
+  @Override
+  public int compare(DigitalVideoDisc d1, DigitalVideoDisc d2) {
+
+    // So sánh title trước
+    int titleCompare = d1.getTitle().compareTo(d2.getTitle());
+    if (titleCompare != 0) {
+      return titleCompare;
+    }
+
+    // Nếu title giống nhau → so sánh length (giảm dần)
+    int lengthCompare = Integer.compare(d2.getLength(), d1.getLength());
+    if (lengthCompare != 0) {
+      return lengthCompare;
+    }
+
+    // Nếu length cũng giống nhau → so sánh cost
+    return Float.compare(d1.getCost(), d2.getCost());
+  }
+}
