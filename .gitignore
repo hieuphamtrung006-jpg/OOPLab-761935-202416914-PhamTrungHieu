@@ -1,0 +1,12 @@
+# Exclude all compiled Java class files
+*.class
+
+# Exclude local build directories and temporary libraries
+bin/
+out/
+build/
+Lab05/javafx-libs/
+
+# Exclude OS temporary files
+.DS_Store
+Thumbs.db
